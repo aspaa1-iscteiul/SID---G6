@@ -11,6 +11,7 @@ public class DBconnector {
 	public void connect(String user, String password) throws SQLException{
 		con = DriverManager.getConnection(dbUrl, user, password);
 		System.out.println("Login efectuado com sucesso!");
+		new TableResearchers(con).selectAll();
 	}
 	
 }

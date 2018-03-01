@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-public class authenticationGui {
+public class AuthenticationGui {
 
 	private JFrame frame;
 	private JTextField username;
@@ -27,7 +27,7 @@ public class authenticationGui {
 	private JButton login;
 	private JButton signUp;
 
-	public authenticationGui() {
+	public AuthenticationGui() {
 
 		frame = new JFrame("Monitorização de culturas");
 		JPanel overallPanel = new JPanel(new GridLayout(3,1));
@@ -95,7 +95,7 @@ public class authenticationGui {
 
 	public static void main(String[] args) {
 
-		authenticationGui authenticationWindow = new authenticationGui();
+		AuthenticationGui authenticationWindow = new AuthenticationGui();
 		authenticationWindow.open();
 	}
 
