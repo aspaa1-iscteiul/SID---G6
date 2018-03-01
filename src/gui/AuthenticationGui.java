@@ -1,4 +1,5 @@
 package gui;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -17,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 public class AuthenticationGui {
@@ -51,10 +53,9 @@ public class AuthenticationGui {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					new DBconnector().connect(username.getText(), charArrayToString(password.getPassword()));
-					JLabel sucessfulLogin = new JLabel(new ImageIcon(new CreateBufferedImage("images/Ok_Icon.png" ).getBufferedImage()));
-					buttonPanel.add(sucessfulLogin);
-					SwingUtilities.updateComponentTreeUI(frame);
+					setConnectionBackgroudColor(overallPanel, usernamePanel, passwordPanel, buttonPanel);
 				} catch (SQLException e1) {
+					setDisconnectionBackgroudColor(usernamePanel, passwordPanel, buttonPanel);
 					JOptionPane.showMessageDialog(null, "Não foi possível efectuar o login");
 				}
 			}
@@ -92,6 +93,21 @@ public class AuthenticationGui {
 		}
 		return string;
 	}
+
+	private void setDisconnectionBackgroudColor(JPanel usernamePanel, JPanel passwordPanel, JPanel buttonPanel){
+		Color color = new Color(219,151,149).brighter();
+		usernamePanel.setBackground(color);
+		passwordPanel.setBackground(color);
+		buttonPanel.setBackground(color);
+	}
+
+	private void setConnectionBackgroudColor(JPanel overallPanel, JPanel usernamePanel, JPanel passwordPanel, JPanel buttonPanel){
+		Color color = new Color(155, 226, 155).brighter();
+		usernamePanel.setBackground(color);
+		passwordPanel.setBackground(color);
+		buttonPanel.setBackground(color);
+	}
+
 
 	public static void main(String[] args) {
 
