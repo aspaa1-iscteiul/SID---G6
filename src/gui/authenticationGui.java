@@ -47,10 +47,10 @@ public class authenticationGui {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					new DBconnector().connect(username.getText(), password.getPassword().toString());
+					new DBconnector().connect(username.getText(), charArrayToString(password.getPassword()));
+					System.out.println("resultou");
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					System.out.println("Falhou");
 				}
 			}
 		});
@@ -78,6 +78,14 @@ public class authenticationGui {
 		int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
 		int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
 		frame.setLocation(x, y);
+	}
+	
+	private String charArrayToString(char[] array) {
+		String string = "";
+		for(int i=0; i<array.length;i++) {
+			string = string + array[i];
+		}
+		return string;
 	}
 
 	public static void main(String[] args) {
