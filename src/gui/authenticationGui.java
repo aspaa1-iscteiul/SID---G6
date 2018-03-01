@@ -8,12 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 public class authenticationGui {
@@ -48,9 +51,11 @@ public class authenticationGui {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					new DBconnector().connect(username.getText(), charArrayToString(password.getPassword()));
-					System.out.println("resultou");
+					JLabel sucessfulLogin = new JLabel(new ImageIcon(new CreateBufferedImage("images/Ok_Icon.png" ).getBufferedImage()));
+					buttonPanel.add(sucessfulLogin);
+					SwingUtilities.updateComponentTreeUI(frame);
 				} catch (SQLException e1) {
-					System.out.println("Falhou");
+					JOptionPane.showMessageDialog(null, "Não foi possível efectuar o login");
 				}
 			}
 		});
@@ -79,7 +84,7 @@ public class authenticationGui {
 		int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
 		frame.setLocation(x, y);
 	}
-	
+
 	private String charArrayToString(char[] array) {
 		String string = "";
 		for(int i=0; i<array.length;i++) {

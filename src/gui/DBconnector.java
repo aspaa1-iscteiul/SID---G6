@@ -13,12 +13,4 @@ public class DBconnector {
 		System.out.println("Login efectuado com sucesso!");
 	}
 	
-	public static void main(String[] args) {
-		try {
-			new DBconnector().connect("dba", "sql");
-			System.out.println("Resultou");
-		} catch (SQLException e) {
-			System.out.println("falhou");
-		}
-	}
 }
