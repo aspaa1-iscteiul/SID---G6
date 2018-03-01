@@ -8,14 +8,13 @@ public class DBconnector {
 	private Connection 	con;
 	private String dbUrl = "jdbc:sqlanywhere:";
 
-	public void connect(String user, String password){
+	public void connect(String user, String password) throws SQLException{
 
 		try {	
 			con = DriverManager.getConnection(dbUrl, user, password);
-			
-			System.out.println("resultou");
+			System.out.println("Login efectuado com sucesso!");
 		} catch (SQLException e) {
-			System.out.println("falhou");
+			System.out.println("Não foi possível efectuar login");
 		}
 	}
 }
