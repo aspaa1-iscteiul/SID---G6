@@ -22,7 +22,7 @@ public class TableResearchers {
 	}
 	
 	public void prepareStatements() throws SQLException{
-		selectAll = conn.prepareStatement("SELECT * FROM Researcher");
+		selectAll = conn.prepareStatement("SELECT * FROM Culture");
 	}
 
 	public void selectAll() throws SQLException{
@@ -36,7 +36,7 @@ public class TableResearchers {
 		System.out.println();
 		
 		while (rset.next()) {
-	        System.out.println("Email: " + rset.getString(1) + ", Nome: " + rset.getString(2));
+	        System.out.println("idCulture: " + rset.getString(1) + ", Username: " + rset.getString(2));
 	        }
 	}
 }

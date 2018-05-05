@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DBconnector {
 	private Connection 	con;
 //	private String dbfile = "C:\\Users\\tosh\\Documents\\ISCTE\\3º Ano 2017-18 (Projetos)"
-//			+ "\\2º Semestre\\SID - Sistemas de Informação Distribuídos Agregada\\DB\\Culturas.db"; 
-	private String dbfile = "bd\\Culturas.db"; 
+//			+ "\\2º Semestre\\SID - Sistemas de Informação Distribuídos Agregada\\DB G06\\g06_db_sybase.db"; 
+	private String dbfile = "DB G06\\g06_db_sybase.db"; 
 	private String dbUrl = "jdbc:sqlanywhere:Tds:localhost:2638?START=dbeng12;DBF=" + dbfile;
 
 	public void connect(String user, String password) throws SQLException{
